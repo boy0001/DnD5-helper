@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class SpellsLayout implements IPanel
+public class SpellsPanel implements IPanel
 {
     @Override
     public JComponent getPanel()

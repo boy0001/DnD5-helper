@@ -44,7 +44,7 @@ public class StringComparison
             @Override
             public int compare(Spell o1, Spell o2)
             {
-                return 0;
+                return 0; //TODO have this compare spells
             }
         });
         return null;
