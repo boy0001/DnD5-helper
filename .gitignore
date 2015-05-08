@@ -3,3 +3,4 @@
 src/Spells.xml
 *.project
 *.classpath
+src/SpellLists.xml
