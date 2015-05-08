@@ -7,13 +7,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class PlayersPanel implements IPanel
+public class SpellsLayout implements IPanel
 {
     @Override
     public JComponent getPanel()
     {
         JPanel panel = new JPanel(false);
-        JLabel filler = new JLabel("Player stuff");
+        JLabel filler = new JLabel("Some text");
         filler.setHorizontalAlignment(SwingConstants.CENTER);
         panel.setLayout(new GridLayout(1, 1));
         panel.add(filler);

@@ -10,6 +10,8 @@ public class Spell
     public final Component[] components;
     public final Duration duration;
     public final String description;
+    
+    private int hash;
 
     public Spell(String name, byte level, SpellClass spellClass, School school, boolean ritual, Component[] components, Duration duration, String description)
     {
@@ -35,7 +37,6 @@ public class Spell
         return ((Spell) obj).name.equals(this.name);
     }
     
-    int hash;
     @Override
     public int hashCode()
     {
