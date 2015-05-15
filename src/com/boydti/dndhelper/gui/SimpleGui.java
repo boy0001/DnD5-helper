@@ -1,6 +1,6 @@
 package com.boydti.dndhelper.gui;
 
-import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Insets;
 
@@ -8,6 +8,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -27,7 +28,7 @@ public class SimpleGui extends JFrame {
         
         JTabbedPane tabs = this.setupTabs();
         RollsPanel rolls = new RollsPanel();
-        this.setupLayout(tabs, rolls.getPanel());
+        this.setupLayout(tabs, rolls.getPanel(), this);
     }
     
     private void setupWindow() {
@@ -48,19 +49,19 @@ public class SimpleGui extends JFrame {
         return tabs;
     }
     
-    private void setupLayout(JComponent... args) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, args.length));
-        double totalWidth = this.getSize().getWidth();
-        double totalHeight = this.getSize().getHeight();
-        double width = (totalWidth / 2);
-        JPanel group = new JPanel(new BorderLayout());
-        for (JComponent arg : args) {
-            panel.add(arg);
-        }
+    private void setupLayout(JComponent splitLeft, JComponent splitRight, JFrame parent) {
+        JSplitPane pane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,splitLeft, splitRight);
+
         
-        
-        this.add(panel);
+//        pane.setLayout(new GridLayout());
+        pane.setOneTouchExpandable(true);
+        pane.setDividerLocation(600);
+        splitLeft.setMinimumSize(new Dimension(600, 0));
+        splitRight.setMinimumSize(new Dimension(100, 0));
+//        double totalWidth = this.getSize().getWidth();
+//        double totalHeight = this.getSize().getHeight();
+//        double width = (totalWidth / 2);
+        parent.add(pane);
     }
     
     private static JComponent newTextPanel(String text) {
